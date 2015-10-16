@@ -19,10 +19,10 @@ class Solution {
                 t) {
     // write your code here
     if(s == t) return true;
+    S.insert(s);
     for(auto & neighbor : s->neighbors) {
       if(!S.count(neighbor)) {
         if(hasRoute(graph, neighbor, t)) return true;
-        S.insert(neighbor);
       }
     }
     return false;
