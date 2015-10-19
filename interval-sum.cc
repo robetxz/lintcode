@@ -9,11 +9,19 @@
  */
 class Solution { 
  public:
-  /**
-   *@param A, queries: Given an integer array and an query list
-   *@return: The result list
-   */
+  // O(A.size() + queries.size())
   vector<long long> intervalSum(vector<int> &A, vector<Interval> &queries) {
+    vector<long long> sums(A.size() + 1, 0);
+    for(int i = 1; i < sums.size(); ++i) sums[i] = sums[i-1] + A[i-1];
+    vector<long long> results;
+    for(auto & q : queries) {
+      results.push_back(sums[q.end + 1] - sums[q.start]);
+    }
+    return results;
+  }
+
+  // O(A.size() + queries.size() * height)
+  vector<long long> intervalSum2(vector<int> &A, vector<Interval> &queries) {
     // write your code here
     vector<long long> sums;
     SegmentTree ST(A);
