@@ -48,9 +48,9 @@ class Solution {
     }
 
     SegmentTreeNode *build(vector<int>& A, int start, int end) {
-      int mx = INT_MAX;
+      int mn = INT_MAX;
       if(end < start) return NULL;
-      SegmentTreeNode *p = new SegmentTreeNode(start, end, mx);
+      SegmentTreeNode *p = new SegmentTreeNode(start, end, mn);
       if(start == end) {
         p->min = A[start];
         return p;
