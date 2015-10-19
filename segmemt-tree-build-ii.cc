@@ -27,12 +27,12 @@ class Solution {
   SegmentTreeNode *build(vector<int>& A, int start, int end) {
     int mx = INT_MIN;
     if(end < start) return NULL;
-    for(int i = start; i <= end; ++i) mx = max(mx, A[i]);
     SegmentTreeNode *p = new SegmentTreeNode(start, end, mx);
-    if(start == end) return p;
+    if(start == end) { p->max = A[start]; return p; }
     int mid = (start + end) / 2;
     p->left = build(A, start, mid);
     p->right = build(A, mid + 1, end);
+    p->max = max(p->left->max, p->right->max);
     return p;
   }
 };
