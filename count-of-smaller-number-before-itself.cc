@@ -1,3 +1,4 @@
+// 引申应用：求逆序数，也可以用mergeSort解决，复杂度一样是O(nlogn)
 class Solution {
  public:
   vector<int> countOfSmallerNumberII(vector<int> &A) {
