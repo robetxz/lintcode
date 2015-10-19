@@ -21,6 +21,7 @@ class Solution {
    */
   int query(SegmentTreeNode *root, int start, int end) {
     // write your code here
+    if(root == NULL) return INT_MIN;
     if(end < start) return INT_MIN;
     if(start <= root->start && end >= root->end) {
       return root->max;
