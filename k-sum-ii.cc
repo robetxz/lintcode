@@ -8,7 +8,7 @@ class Solution {
   }
 
   void foo(int indx, vector<int> & A, int k, int target, vector<int> & tmp, vector<vector<int>> & result) {
-    if(indx >= A.size()) return;
+    if(indx >= A.size() || target <= 0) return;
     if(k == 1) {
       for(int i = indx; i < A.size(); ++i) {
         if(A[i] == target) {
